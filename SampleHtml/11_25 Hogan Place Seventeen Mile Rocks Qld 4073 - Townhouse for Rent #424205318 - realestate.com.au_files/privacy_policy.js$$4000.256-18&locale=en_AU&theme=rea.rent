@@ -1,0 +1,1 @@
+function togglePolicyContainer(B){var A=B.currentTarget?B.currentTarget:B.srcElement,C=$(A).closest(".privacy-policy").find(".privacy-container");if(C.is(":visible")){C.hide()}else{C.show()}return false};

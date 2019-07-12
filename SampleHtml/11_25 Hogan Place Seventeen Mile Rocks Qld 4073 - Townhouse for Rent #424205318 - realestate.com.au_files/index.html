@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)https://www.realestate.com.au/assets/secure-localstorage-update/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title></title>
+</head>
+<body marginwidth="0" marginheight="0">
+<script>
+
+    var strEndsWith = function(str, suffix) {
+        return str.match(suffix+"$")==suffix;
+    };
+
+    var isOriginAllowed = function(origin) {
+        return strEndsWith(origin,'.realestate.com.au');
+    };
+
+    var setLocalStorage = function(key,data) {
+        if(data[key]){
+            try {
+                window.localStorage.setItem(key, JSON.stringify(data[key]));
+            } catch (e) {}
+        }
+    };
+
+    var parseJSON = function( data ){
+        try{
+            return JSON.parse(data)
+        } catch(e) {}
+    };
+
+
+    var handleMessage = function( event ){
+        if (isOriginAllowed(event.origin)){
+            var parsedData = event.data ? parseJSON(event.data) : null;
+            if(!parsedData) return;
+            setLocalStorage('rea-preferences', parsedData);
+            setLocalStorage('rea-recentLocations', parsedData);
+        }
+    };
+
+    window.addEventListener('message', handleMessage, false);
+</script>
+
+</body></html>

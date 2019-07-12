@@ -1,0 +1,17 @@
+var vicomauREACalculator=function(o){var allBrands="//visualidentity.cachefly.net/realestate.com.au.calculators.vi.com.au/all-brands/",coreMinPath,local;
+switch(window.location.hostname){case"calculators.realestate.com.au.localhost":case"calculators.realestate.com.au.development.vi.com.au":case"calculators.realestate.com.au.staging.vi.com.au":local=true;
+coreMinPath="/sites/all/modules/calculator/oop-yui3/au/com/vi/js/core.js";break;default:local=false;coreMinPath=allBrands+"au/com/vi/build/core-min.js";
+}if(typeof o.cdnPath!="undefined"){cdnPath=o.cdnPath;}else{if(o.display.toLowerCase()=="inpage"){if(local){cdnPath="/sites/default/files/apps/calculators/rea-branded/REA11531/";
+}else{cdnPath="//visualidentity.cachefly.net/realestate.com.au.calculators.vi.com.au/rea-branded/REA11531/";}}else{if(o.display=="overlay"){switch(o.field_referrer.toLowerCase()){case"buy":cdnPath="//visualidentity.cachefly.net/realestate.com.au.calculators.vi.com.au/rea-branded/REA11531/";
+break;case"rent":cdnPath="//visualidentity.cachefly.net/realestate.com.au.calculators.vi.com.au/rams-branded/REA12158/";break;default:cdnPath="//visualidentity.cachefly.net/realestate.com.au.calculators.vi.com.au/rea-branded/REA11531/";
+}}}}if(o.display.toLowerCase()=="mobile"){switch(o.field_referrer.toLowerCase()){case"buy":if(local){cdnPath="/sites/all/modules/calculator/oop-yui3/";
+}else{cdnPath="//visualidentity.cachefly.net/realestate.com.au.calculators.vi.com.au/anz-branded/";}o.nid=108;break;case"rent":if(local){cdnPath="/sites/all/modules/calculator/oop-yui3/";
+}else{cdnPath="//visualidentity.cachefly.net/realestate.com.au.calculators.vi.com.au/rams-branded/";}o.nid=133;break;default:cdnPath="//visualidentity.cachefly.net/realestate.com.au.calculators.vi.com.au/rea-branded/";
+}}var d=document,h=d.getElementsByTagName("head")[0],c=200,u=cdnPath,j="au/com/vi/",a=0,b=0,v="1.4.2",f,s;aucomviLoaded=false;f={jQuery:"//ajax.googleapis.com/ajax/libs/jquery/"+v+"/jquery.min.js",aucomviLoadApp:coreMinPath};
+f.YUI="//visualidentity.cachefly.net/realestate.com.au.calculators.vi.com.au/all-brands/au/com/vi/yui/3.1.1/build/yui-min.js";var aucomviRandom=new Date().getTime();
+f.YUI_modules="//visualidentity.cachefly.net/realestate.com.au.calculators.vi.com.au/all-brands/au/com/vi/yui/3.1.1/build/yui-modules.js?"+aucomviRandom+"";
+for(var prop in f){if(f.hasOwnProperty(prop)){a++;}}for(var prop in f){if(f.hasOwnProperty(prop)){function writeScript(p){s=d.createElement("script");s.setAttribute("id","lib"+prop);
+s.setAttribute("src",p);s.setAttribute("type","text/javascript");}if(!d.getElementById("lib"+prop)){if(prop==="jQuery"){writeScript(f[prop]);h.insertBefore(s,h.firstChild);
+}else{if(eval("typeof "+prop+'=== "undefined"')){writeScript(f[prop]);h.appendChild(s);}}(function(prop,s){if(navigator.userAgent.match("MSIE")){s.onreadystatechange=function(){if(s.readyState=="loaded"||s.readyState==="complete"){if(prop==="jQuery"){j142=jQuery.noConflict(true);
+}b++;if(b===a){aucomviLoadApp({s:u,a:j,o:o});}}};}else{s.addEventListener("load",function(){checkLoaded();},false);}function checkLoaded(){if(prop==="jQuery"){j142=jQuery.noConflict(true);
+}b++;if(b===a){aucomviLoadApp({s:u,a:j,o:o});}}})(prop,s);}else{aucomviLoaded=true;}}}if(aucomviLoaded){aucomviLoadApp({s:u,a:j,o:o});}};
